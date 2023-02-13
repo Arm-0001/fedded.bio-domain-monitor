@@ -11,7 +11,13 @@ import { Config, Logger, DNS, Webhook } from "@utils";
 await Config.load("config.toml");
 Logger.log(`Loaded ${Object.keys(Config.get()).length} item(s) into the config!`);
 
-const webhook = new Webhook(Config.get("discord", "webhook_url"), Config.get("discord", "message_id"));
+const { webhook_url, message_id, defaults } = Config.get("discord");
+
+const webhook = new Webhook(
+  webhook_url,
+  message_id,
+  JSON.parse(Deno.readTextFileSync(defaults))
+);
 
 const main = async () => {
   const { domains, exchange, emojis } = Config.get("variables");

@@ -1,0 +1,9 @@
+[discord]
+webhook_url = "<DISCORD_WEBHOOK>"
+message_id = "<MESSAGE_ID>"
+defaults = "defaults.json"
+
+[variables]
+exchange = "<EXCHANGE>"
+domains = [ "example.com" ]
+emojis = [ "<OFFLINE>", "<ONLINE>" ]
