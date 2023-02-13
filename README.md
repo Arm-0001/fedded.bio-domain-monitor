@@ -18,5 +18,5 @@ $ vim config.toml
 ```
 $ deno run -A main.ts # Alternatively, you can run as a system service
 ```
-> ### Contirbuting ✨
+> ### Contributing ✨
 #### If you'd like to contribute, feel free to open a PR
