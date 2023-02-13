@@ -9,7 +9,7 @@
 $ git clone https://github.com/catgir-ls/domains.git
 $ cd domains
 ```
-#### Configuring
+### Configuring
 ```
 $ mv config.example.toml
 $ vim config.toml
