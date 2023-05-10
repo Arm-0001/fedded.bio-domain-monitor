@@ -24,7 +24,7 @@ class Webhook {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({ embeds: [{
-        description: `> There are currently a total of **${status.length}** domains connected to [catgir.ls](https://catgir.ls)\n\n> If you'd like your own domain added, feel free to open a ticket regarding this, please note that we're quite strict with the domains we allow.`,
+        description: `> There are currently a total of **${status.length}** domains connected to [fedded.bio](https://fedded.bio)\n\n`,
         fields: [{
           name: "Domains",
           value: status.join("\n")
