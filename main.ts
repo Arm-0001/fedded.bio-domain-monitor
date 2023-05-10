@@ -1,11 +1,12 @@
 /**
  * @author e991f665b7e62df5a54fdef19053a4e75117b89 <c@raci.sm>
+ * @author Arm-0001 <armzero001@proton.me>
  */
 
 // Dependencies
 import { cron } from "@deps";
 
-// Utils
+
 import { Config, Logger, DNS, Webhook } from "@utils";
 
 await Config.load("config.toml");
@@ -31,13 +32,24 @@ const main = async () => {
     ]))
   );
 
-  const status = Object.keys(result).map((domain: string) => `• \`${domain}\` ${emojis[Number(result[domain])]}`);
+  const status = Object.keys(result).map(async (domain: string) => {
+    try {
+      const response = await fetch(`http://${domain}`, { timeout: 10000 });
+      const status = response.status === 200 ? emojis[1] : emojis[0];
+      return `• \`${domain}\` ${status}`;
+    } catch (error) {
+      return `• \`${domain}\` ${emojis[0]}`;
+    }
+  });
 
-  if(!await webhook.update(status))
+  if(!await webhook.update(await Promise.all(status)))
     return Logger.error("Unable to update Discord webhook!");
 
-  Logger.log("Succesfully updated Discord webhook!");
+  Logger.log("Successfully updated Discord webhook!");
 }
+
+Logger.log("Running main function!");
+await main();
 
 Logger.log("Setting up cronjob!");
 new cron("*/30 * * * *", main);
