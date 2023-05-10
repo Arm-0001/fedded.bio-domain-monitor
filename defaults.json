@@ -1,12 +1,9 @@
 {
-  "title": "domains >.<",
-  "url": "https://catgir.ls",
+  "title": "Domains",
+  "url": "https://fedded.bio",
   "color": 14530013,
   "footer": {
-    "text": "catgir.ls",
-    "icon_url": "https://i.imgur.com/j8zZRSp.jpg"
-  },
-  "thumbnail":  {
-    "url": "https://i.imgur.com/j8zZRSp.jpg"
+    "text": "Powered by https://github.com/Arm-0001/fedded.bio-domain-monitor",
+    "icon_url": "https://cdn.discordapp.com/attachments/1105977827247013939/1105977927365046334/TV6VToS.gif"
   }
 }
