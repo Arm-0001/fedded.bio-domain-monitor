@@ -34,7 +34,7 @@ const main = async () => {
 
   const status = Object.keys(result).map(async (domain: string) => {
     try {
-      const response = await fetch(`http://${domain}`, { timeout: 10000 });
+      const response = await fetch(`http://${domain}`, { timeout: 10000 } as RequestInit);
       const status = response.status === 200 ? emojis[1] : emojis[0];
       return `• \`${domain}\` ${status}`;
     } catch (error) {
